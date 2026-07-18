@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  direction: rtl;
+  font-family: "Tahoma", "Segoe UI", Arial, sans-serif;
+  background-color: #f4f7f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition;
+}
+.btn-primary {
+  @apply btn bg-brand-500 text-white hover:bg-brand-700;
+}
+.btn-secondary {
+  @apply btn bg-white text-gray-700 border border-gray-300 hover:bg-gray-50;
+}
+.btn-danger {
+  @apply btn bg-red-600 text-white hover:bg-red-700;
+}
+.card {
+  @apply bg-white rounded-xl shadow-sm border border-gray-200 p-4;
+}
+.input {
+  @apply w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500;
+}
+.label {
+  @apply block text-sm font-medium text-gray-600 mb-1;
+}
+table.data-table {
+  @apply w-full text-sm text-right border-collapse;
+}
+table.data-table th {
+  @apply bg-gray-100 text-gray-600 font-semibold px-3 py-2 border-b border-gray-200;
+}
+table.data-table td {
+  @apply px-3 py-2 border-b border-gray-100;
+}
