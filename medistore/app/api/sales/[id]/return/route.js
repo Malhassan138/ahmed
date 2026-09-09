@@ -3,9 +3,6 @@ import { prisma } from "@/lib/prisma";
 import { getCurrentUser, hasPermission } from "@/lib/auth";
 import { logAudit } from "@/lib/audit";
 
-// Returns whatever quantity is still remaining across every item in the sale
-// (accounts for items that were already partially returned), and marks the
-// whole sale as returned. Excluded from revenue totals from then on.
 export async function POST(req, { params }) {
   const user = await getCurrentUser();
   if (!user || !hasPermission(user, "sales.return")) {
@@ -21,9 +18,7 @@ export async function POST(req, { params }) {
   try {
     const body = await req.json();
     reason = body?.reason || null;
-  } catch {
-    // no body provided, that's fine
-  }
+  } catch {}
 
   let refundAmount = 0;
 
